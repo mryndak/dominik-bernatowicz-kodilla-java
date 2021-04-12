@@ -30,27 +30,31 @@ public class ShapeCollectorTestSuite {
         void testAddFigure() {
 
             ShapeCollector shapeCollector = new ShapeCollector();
-
             Shape circle1 = new Circle();
-            circle1.getField(12);
+            circle1.setField(12);
             shapeCollector.addFigure(circle1);
 
-            Assertions.assertEquals(1, shapeCollector.figureList.size());
+            int result = shapeCollector.figureList.size();
+
+            Assertions.assertEquals(1, result);
+            System.out.println("Expected size of the list : 1");
+            System.out.println("Actual size of the list: " + result);
+
         }
 
         @Test
         void testRemoveFigure() {
 
             ShapeCollector shapeCollector = new ShapeCollector();
-
-            Circle circle1 = new Circle();
-            circle1.field = 12;
+            Shape circle1 = new Circle();
+            circle1.setField(12);
             shapeCollector.addFigure(circle1);
 
-            boolean result = shapeCollector.removeFigure(circle1);
+            int result = shapeCollector.figureList.size();
 
-            Assertions.assertTrue(result);
-            Assertions.assertEquals(0, shapeCollector.figureList.size());
+            Assertions.assertEquals(1, result);
+            System.out.println("Expected size of the list : 1");
+            System.out.println("Actual size of the list: " + result);
         }
     }
 
@@ -62,28 +66,30 @@ public class ShapeCollectorTestSuite {
         void testGetFigure() {
 
             ShapeCollector shapeCollector = new ShapeCollector();
-            Circle circle1 = new Circle();
-            circle1.field = 12;
+            Shape circle1 = new Circle();
+            circle1.setField(12);
             shapeCollector.addFigure(circle1);
 
-            Shape retrievedShape;
-            retrievedShape = shapeCollector.figureList.get(0);
+            Shape result = shapeCollector.figureList.get(0);
 
-            Assertions.assertEquals(circle1, retrievedShape);
+            Assertions.assertEquals(circle1, result);
+            System.out.println("Expected name of the shape: " + circle1.getShapeName());
+            System.out.println("Actual name of the shape: " + result.getShapeName());
         }
 
         @Test
         void testShowFigures() {
 
             ShapeCollector shapeCollector = new ShapeCollector();
-            Circle circle1 = new Circle();
-            circle1.field = 12;
+            Shape circle1 = new Circle();
+            circle1.setField(12);
             shapeCollector.addFigure(circle1);
 
-            String retrievedShape;
-            retrievedShape = shapeCollector.showFigures();
+            String result = shapeCollector.showFigures();
 
-            Assertions.assertEquals(circle1.getShapeName(), retrievedShape);
+            Assertions.assertEquals(circle1.getShapeName(), result);
+            System.out.println("Expected names in the shapes list: " + circle1.getShapeName());
+            System.out.println("Actual names in the shapes list: " + result);
         }
     }
 }

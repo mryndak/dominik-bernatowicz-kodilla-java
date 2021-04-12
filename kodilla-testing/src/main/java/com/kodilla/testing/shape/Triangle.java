@@ -6,13 +6,16 @@ public class Triangle  implements Shape {
 
     @Override
     public String getShapeName() {
-
-        return "Triangle";
+        return  "Triangle";
     }
 
     @Override
-    public int getField(int field) {
+    public void getField() {
+        System.out.println(field);
+    }
 
-        return field;
+    @Override
+    public void setField(int field) {
+        this.field = field;
     }
 }
