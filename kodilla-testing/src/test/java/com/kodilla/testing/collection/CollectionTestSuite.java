@@ -1,10 +1,6 @@
 package com.kodilla.testing.collection;
-import com.kodilla.testing.collection.OddNumbersExterminator;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -29,23 +25,37 @@ public class CollectionTestSuite {
 
         OddNumbersExterminator oddNumExt = new OddNumbersExterminator();
         List<Integer> number = new LinkedList<>();
+        List<Integer> expectedResult = new LinkedList<>();
 
-        System.out.println(oddNumExt.exterminate(number));
+        //When
+        List<Integer> result = new LinkedList<>(oddNumExt.exterminate(number));
+
+        //Than
+        Assertions.assertEquals(expectedResult, result);
+        System.out.println("Expected Result: " + expectedResult);
+        System.out.println("Result: " + result);
     }
 
     @DisplayName("Checking normal lists")
 
     @Test
     void testOddNumbersExterminatorNormalList() {
-
+        //Given
         OddNumbersExterminator oddNumExt = new OddNumbersExterminator();
         List<Integer> number = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        List<Integer> expectedResult = new LinkedList<>(Arrays.asList(2, 4, 6));
 //        number.add(1);
 //        number.add(2);
 //        number.add(3);
 //        number.add(4);
 //        number.add(5);
 
-        System.out.println(oddNumExt.exterminate(number));
+        //When
+        List<Integer> result = new LinkedList<>(oddNumExt.exterminate(number));
+
+        //Than
+        Assertions.assertEquals(expectedResult, result);
+        System.out.println("Expected Result: " + expectedResult);
+        System.out.println("Result: " + result);
     }
 }

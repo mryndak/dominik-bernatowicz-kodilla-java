@@ -5,6 +5,14 @@ public class Circle implements Shape {
 
     int field;
 
+    public int getField() {
+        return field;
+    }
+
+    public void setField(int field) {
+        this.field = field;
+    }
+
     @Override
     public String getShapeName() {
         return "Circle";

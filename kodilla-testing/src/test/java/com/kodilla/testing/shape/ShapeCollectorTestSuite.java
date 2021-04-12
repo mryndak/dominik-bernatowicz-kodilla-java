@@ -31,8 +31,8 @@ public class ShapeCollectorTestSuite {
 
             ShapeCollector shapeCollector = new ShapeCollector();
 
-            Circle circle1 = new Circle();
-            circle1.field = 12;
+            Shape circle1 = new Circle();
+            circle1.getField(12);
             shapeCollector.addFigure(circle1);
 
             Assertions.assertEquals(1, shapeCollector.figureList.size());
