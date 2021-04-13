@@ -22,7 +22,7 @@ public class CollectionTestSuite {
 
     @Test
     void testOddNumbersExterminatorEmptyList() {
-
+        //Given
         OddNumbersExterminator oddNumExt = new OddNumbersExterminator();
         List<Integer> number = new LinkedList<>();
         List<Integer> expectedResult = new LinkedList<>();
