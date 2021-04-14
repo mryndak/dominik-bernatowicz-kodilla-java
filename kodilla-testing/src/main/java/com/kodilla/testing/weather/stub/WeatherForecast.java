@@ -1,7 +1,6 @@
 package com.kodilla.testing.weather.stub;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class WeatherForecast {
     private Temperatures temperatures;
@@ -43,39 +42,57 @@ public class WeatherForecast {
 
     public Map<String, Double> median() {
         Map<String, Double> medianMap = new HashMap<>();
-        Map<String, Double> resultMedianMap = new HashMap<>();
+        Map<Double, String> sortedMedianMap = new HashMap<>();
+        List<Double> sortedValueList = new ArrayList<>();
         double storedValue = 0;
         String storedKey = "";
+        double mediana = 0;
 
-        for (int i = 0; i < temperatures.getTemperatures().size(); i++) {
-            for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
-                if (i == 0) {
-                    storedValue = temperature.getValue();
-                    storedKey = temperature.getKey();
-                } else {
-                    if (storedValue > temperature.getValue()) {
-                        storedValue = temperature.getValue();
-                        storedKey = temperature.getKey();
+        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
+            sortedValueList.add(temperature.getValue());
+            storedKey = temperature.getKey();
+            storedValue = temperature.getValue();
+            sortedMedianMap.put(storedValue, storedKey);
+        }
+        Collections.sort(sortedValueList);
+
+        for (int i = 0; i < sortedValueList.size(); i++) {
+            if (sortedValueList.size() % 2 == 0) {
+                if (i == (sortedValueList.size()/2)){
+                    mediana = sortedValueList.get(i);
+                    for (Map.Entry<Double, String> temperature : sortedMedianMap.entrySet()) {
+                        if (mediana == temperature.getKey()) {
+                            storedValue = temperature.getKey();
+                            storedKey = temperature.getValue();
+                            medianMap.put(storedKey, storedValue);
+                        }
+                    }
+                }
+                else if (i == ((sortedValueList.size()/2)-1)){
+                    mediana = sortedValueList.get(i);
+                    for (Map.Entry<Double, String> temperature : sortedMedianMap.entrySet()) {
+                        if (mediana == temperature.getKey()) {
+                            storedValue = temperature.getKey();
+                            storedKey = temperature.getValue();
+                            medianMap.put(storedKey, storedValue);
+                        }
                     }
                 }
             }
-            medianMap.put(storedKey, storedValue);
-            temperatures.getTemperatures().remove(storedKey);
-        }
-
-        if ((temperatures.getTemperatures().size() % 2) == 0){
-
-            int j = 1;
-            for(Map.Entry<String, Double>temperature : resultMedianMap.entrySet()) {
-                if (j == (medianMap.size() / 2)) {
-                    resultMedianMap.put(temperature.getKey(), temperature.getValue());
+            else {
+                if (i == (sortedValueList.size()/2)) {
+                    mediana = sortedValueList.get(i);
+                    for (Map.Entry<Double, String> temperature : sortedMedianMap.entrySet()) {
+                        if (mediana == temperature.getKey()) {
+                            storedValue = temperature.getKey();
+                            storedKey = temperature.getValue();
+                            medianMap.put(storedKey, storedValue);
+                        }
+                    }
                 }
-                else if (j == ((medianMap.size() / 2) + 1)) {
-                    resultMedianMap.put(temperature.getKey(), temperature.getValue());
-                }
-                j++;
             }
         }
-        return resultMedianMap;
+
+        return medianMap;
     }
 }
