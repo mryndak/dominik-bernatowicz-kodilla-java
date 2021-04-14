@@ -2,7 +2,9 @@ package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
 
-    int field;
+    double r;
+    double pi = 3.14;
+    double field;
 
     @Override
     public String getShapeName() {
@@ -11,11 +13,11 @@ public class Circle implements Shape {
 
     @Override
     public void getField() {
+        field = pi * r * r;
         System.out.println(field);
     }
 
-    @Override
-    public void setField(int field) {
-        this.field = field;
+    public void setField(double r) {
+        this.r = r;
     }
 }

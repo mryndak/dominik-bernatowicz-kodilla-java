@@ -1,7 +1,9 @@
 package com.kodilla.testing;
 
-import com.kodilla.testing.calculator.Calculator;
-import com.kodilla.testing.user.SimpleUser;
+import com.kodilla.testing.weather.stub.Temperatures;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestingMain {
 

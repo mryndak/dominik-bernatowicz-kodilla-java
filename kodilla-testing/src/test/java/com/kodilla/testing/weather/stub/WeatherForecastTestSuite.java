@@ -8,7 +8,7 @@ class WeatherForecastTestSuite {
     @Test
     void testCalculateForecastWithStub() {
         //Given
-        Temperatures temperatures = null;
+        Temperatures temperatures = new TemperaturesStub();
         WeatherForecast weatherForecast = new WeatherForecast(temperatures);
 
         //When

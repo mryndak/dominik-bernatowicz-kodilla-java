@@ -2,6 +2,8 @@ package com.kodilla.testing.shape;
 
 public class Triangle  implements Shape {
 
+    double a;
+    double h;
     int field;
 
     @Override
@@ -14,8 +16,8 @@ public class Triangle  implements Shape {
         System.out.println(field);
     }
 
-    @Override
-    public void setField(int field) {
-        this.field = field;
+    public void setField(double a, double h) {
+        this.a = a;
+        this.h = h;
     }
 }

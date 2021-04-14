@@ -2,7 +2,8 @@ package com.kodilla.testing.shape;
 
 public class Square  implements Shape {
 
-    int field;
+    double a;
+    double field;
 
     @Override
     public String getShapeName() {
@@ -11,11 +12,11 @@ public class Square  implements Shape {
 
     @Override
     public void getField() {
+        field = a * a;
         System.out.println(field);
     }
 
-    @Override
-    public void setField(int field) {
-        this.field = field;
+    public void setField(int a) {
+        this.a = a;
     }
 }
