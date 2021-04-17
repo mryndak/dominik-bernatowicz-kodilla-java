@@ -6,6 +6,10 @@ public class Circle implements Shape {
     double pi = 3.14;
     double field;
 
+    public Circle(int r) {
+        this.r = r;
+    }
+
     @Override
     public String getShapeName() {
         return  "Circle";
@@ -15,9 +19,5 @@ public class Circle implements Shape {
     public void getField() {
         field = pi * r * r;
         System.out.println(field);
-    }
-
-    public void setField(double r) {
-        this.r = r;
     }
 }
