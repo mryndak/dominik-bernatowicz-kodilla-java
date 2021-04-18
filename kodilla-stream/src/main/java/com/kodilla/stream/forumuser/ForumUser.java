@@ -47,4 +47,5 @@ public final class ForumUser {
                 ", postQuantity=" + postQuantity +
                 '}';
     }
+
 }
