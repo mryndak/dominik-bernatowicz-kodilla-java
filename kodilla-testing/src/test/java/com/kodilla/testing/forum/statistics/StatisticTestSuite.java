@@ -43,10 +43,20 @@ public class StatisticTestSuite {
             calculate.calculateAdvStatistics(statisticsMock);
 
             // When
+            int theUserCount = calculate.numberOfUser;
             int thePostCount = calculate.numberOfPost;
+            int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
+            assertEquals(1,theUserCount);
             assertEquals(0,thePostCount);
+            assertEquals(0,theCommentCount);
+            assertEquals(0,thePPU);
+            assertEquals(0,theCPU);
+            assertEquals(0,theCPP);
             calculate.showStatistics();
         }
 
@@ -61,10 +71,20 @@ public class StatisticTestSuite {
             calculate.calculateAdvStatistics(statisticsMock);
 
             // When
+            int theUserCount = calculate.numberOfUser;
             int thePostCount = calculate.numberOfPost;
+            int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
+            assertEquals(1,theUserCount);
             assertEquals(1000,thePostCount);
+            assertEquals(0,theCommentCount);
+            assertEquals(1000,thePPU);
+            assertEquals(0,theCPU);
+            assertEquals(0,theCPP);
             calculate.showStatistics();
         }
     }
@@ -82,10 +102,20 @@ public class StatisticTestSuite {
             calculate.calculateAdvStatistics(statisticsMock);
 
             // When
+            int theUserCount = calculate.numberOfUser;
+            int thePostCount = calculate.numberOfPost;
             int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
+            assertEquals(1,theUserCount);
+            assertEquals(10,thePostCount);
             assertEquals(0,theCommentCount);
+            assertEquals(10,thePPU);
+            assertEquals(0,theCPU);
+            assertEquals(0,theCPP);
             calculate.showStatistics();
         }
 
@@ -100,10 +130,20 @@ public class StatisticTestSuite {
             calculate.calculateAdvStatistics(statisticsMock);
 
             // When
-            double theCommentCount = calculate.averageNumberOfCommentsPerPost;
+            int theUserCount = calculate.numberOfUser;
+            int thePostCount = calculate.numberOfPost;
+            int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
-            assertEquals(0.1, theCommentCount);
+            assertEquals(1,theUserCount);
+            assertEquals(100,thePostCount);
+            assertEquals(10,theCommentCount);
+            assertEquals(100,thePPU);
+            assertEquals(10,theCPU);
+            assertEquals(0.1,theCPP);
             calculate.showStatistics();
         }
 
@@ -118,10 +158,20 @@ public class StatisticTestSuite {
             calculate.calculateAdvStatistics(statisticsMock);
 
             // When
-            double theCommentCount = calculate.averageNumberOfCommentsPerPost;
+            int theUserCount = calculate.numberOfUser;
+            int thePostCount = calculate.numberOfPost;
+            int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
-            assertEquals(10,theCommentCount);
+            assertEquals(1,theUserCount);
+            assertEquals(10,thePostCount);
+            assertEquals(100,theCommentCount);
+            assertEquals(10,thePPU);
+            assertEquals(100,theCPU);
+            assertEquals(10,theCPP);
             calculate.showStatistics();
         }
     }
@@ -140,6 +190,11 @@ public class StatisticTestSuite {
 
             // When
             int theUserCount = calculate.numberOfUser;
+            int thePostCount = calculate.numberOfPost;
+            int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
             assertEquals(0,theUserCount);
@@ -158,19 +213,20 @@ public class StatisticTestSuite {
 
             // When
             int theUserCount = calculate.numberOfUser;
+            int thePostCount = calculate.numberOfPost;
+            int theCommentCount = calculate.numberOfComment;
+            double thePPU = calculate.averageNumberOfPostsPerUser;
+            double theCPU = calculate.averageNumberOfCommentsPerUser;
+            double theCPP = calculate.averageNumberOfCommentsPerPost;
 
             // Then
             assertEquals(100,theUserCount);
+            assertEquals(100,thePostCount);
+            assertEquals(10,theCommentCount);
+            assertEquals(1,thePPU);
+            assertEquals(0.1,theCPU);
+            assertEquals(0.1,theCPP);
             calculate.showStatistics();
         }
     }
 }
-/*
-
-    gdy liczba postów = 0,
-        gdy liczba postów = 1000,
-        gdy liczba komentarzy = 0,
-        gdy liczba komentarzy < liczba postów,
-        gdy liczba komentarzy > liczba postów,
-        gdy liczba użytkowników = 0,
-        gdy liczba użytkowników = 100.*/
