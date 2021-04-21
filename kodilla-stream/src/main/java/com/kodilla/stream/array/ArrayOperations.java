@@ -9,7 +9,7 @@ public interface ArrayOperations {
 
         IntStream.range(0, numbers.length).map(n -> numbers[n]).forEach(System.out::println);
 
-        return (double)IntStream.range(0, numbers.length).mapToDouble(n -> numbers[n])
+        return IntStream.range(0, numbers.length).mapToDouble(n -> numbers[n])
                 .average().getAsDouble();
 
     }
