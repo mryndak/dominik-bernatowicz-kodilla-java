@@ -17,8 +17,7 @@ public class Triangle  implements Shape {
     }
 
     @Override
-    public void getField() {
-        field = (a / 2) * h;
-        System.out.println(field);
+    public double getField() {
+        return field = (a / 2) * h;
     }
 }

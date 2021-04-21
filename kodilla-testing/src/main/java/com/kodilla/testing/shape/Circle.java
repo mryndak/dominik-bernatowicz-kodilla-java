@@ -16,8 +16,7 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void getField() {
-        field = pi * r * r;
-        System.out.println(field);
+    public double getField() {
+        return field = pi * r * r;
     }
 }

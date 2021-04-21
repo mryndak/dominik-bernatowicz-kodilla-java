@@ -15,8 +15,7 @@ public class Square  implements Shape {
     }
 
     @Override
-    public void getField() {
-        field = a * a;
-        System.out.println(field);
+    public double getField() {
+        return field = a * a;
     }
 }

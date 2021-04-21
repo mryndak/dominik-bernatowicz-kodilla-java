@@ -33,11 +33,13 @@ public class ShapeCollectorTestSuite {
             Circle circle1 = new Circle(12);
             shapeCollector.addFigure(circle1);
 
-            int result = shapeCollector.figureList.size();
+            int result1 = shapeCollector.figureList.size();
+            double result2 = shapeCollector.figureList.get(0).getField();
 
-            Assertions.assertEquals(1, result);
+            Assertions.assertEquals(1, result1);
+            Assertions.assertEquals((12*12*3.14), result2, 0.01);
             System.out.println("Expected size of the list : 1");
-            System.out.println("Actual size of the list: " + result);
+            System.out.println("Actual size of the list: " + result1);
 
         }
 
@@ -67,11 +69,14 @@ public class ShapeCollectorTestSuite {
             Circle circle1 = new Circle(12);
             shapeCollector.addFigure(circle1);
 
-            Shape result = shapeCollector.figureList.get(0);
+            Shape result1 = shapeCollector.figureList.get(0);
+            double result2 = shapeCollector.figureList.get(0).getField();
 
-            Assertions.assertEquals(circle1, result);
+
+            Assertions.assertEquals(circle1, result1);
+            Assertions.assertEquals(circle1, result1);
             System.out.println("Expected name of the shape: " + circle1.getShapeName());
-            System.out.println("Actual name of the shape: " + result.getShapeName());
+            System.out.println("Actual name of the shape: " + result1.getShapeName());
         }
 
         @Test
