@@ -92,7 +92,7 @@ class BoardTestSuite {
                 .average().getAsDouble();
 
         //Then
-        assertEquals(10,actual,0.01);
+        assertEquals(10.0,actual,0.01);
     }
 
     private Board prepareTestData() {
