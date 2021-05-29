@@ -29,12 +29,7 @@ class MovieStore {
     }
 
     public static void showMovies() {
-
-        getMovies().entrySet().stream().forEach(e -> {
-            e.getValue().stream().forEach(l -> {
-                System.out.print(l + "!");
-            });
-        } );
+        getMovies().forEach((key, value) -> value.forEach(l -> System.out.print(l + "!")));
     }
 
     public static void main(String[] args) {
