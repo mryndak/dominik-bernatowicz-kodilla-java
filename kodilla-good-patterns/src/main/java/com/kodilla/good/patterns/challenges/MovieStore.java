@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 class MovieStore {
 
@@ -25,14 +26,15 @@ class MovieStore {
         booksTitlesWithTranslations.put("AV", avengersTranslations);
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
+        String printTitlesInOneLine = booksTitlesWithTranslations.keySet().stream().map(key -> booksTitlesWithTranslations.get(key).stream().map(n -> String.valueOf(n)).collect(Collectors.joining("!"))).collect(Collectors.joining("!"));
+
+        System.out.println(printTitlesInOneLine);
+
         return booksTitlesWithTranslations;
     }
 
-    public static void showMovies() {
-        getMovies().forEach((key, value) -> value.forEach(l -> System.out.print(l + "!")));
-    }
 
     public static void main(String[] args) {
-        showMovies();
+        getMovies();
     }
 }
