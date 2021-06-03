@@ -26,7 +26,7 @@ class MovieStore {
         booksTitlesWithTranslations.put("AV", avengersTranslations);
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
-        String printTitlesInOneLine = booksTitlesWithTranslations.keySet().stream().map(key -> booksTitlesWithTranslations.get(key).stream().map(n -> String.valueOf(n)).collect(Collectors.joining("!"))).collect(Collectors.joining("!"));
+        String printTitlesInOneLine = booksTitlesWithTranslations.keySet().stream().flatMap(key -> booksTitlesWithTranslations.get(key).stream().map(String::valueOf)).collect(Collectors.joining("!"));
 
         System.out.println(printTitlesInOneLine);
 
