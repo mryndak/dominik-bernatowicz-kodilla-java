@@ -1,12 +1,13 @@
 package com.kodilla.good.patterns.challenges.orderService;
 
-public class ProductOrderService {
+import java.time.LocalDateTime;
 
-    /*
-    użytkownik(imie, nazwisko, nick)
-    przedmiot(id, nazwa)
-    kategoria(nazwa, lista przedmiotów)
-    lista kategorii(kategoria)
-    zamówienie(id=(data, użytkownik, przedmiot), przedmiot, ilość, data, użytkownik)
-     */
+public class ProductOrderService implements OrderService {
+
+    public boolean buy(final User user, final Product product, final LocalDateTime kiedyZakupione){
+        System.out.println("Kupione przez: " + user.getLogin() + "\nPrzedmiot: " + product.getName() +
+                "\nData: " + kiedyZakupione);
+
+        return true;
+    }
 }
