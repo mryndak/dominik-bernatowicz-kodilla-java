@@ -17,9 +17,12 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When & Then
+        board.toDoList.addTask("to do task");
         board.read(board.toDoList);
-        board.read(board.toDoList);
+        board.inProgressList.addTask("in progress task");
         board.read(board.inProgressList);
+        board.doneList.addTask("done task");
+        board.read(board.doneList);
 
         System.out.println("--BEEN--");
         Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);

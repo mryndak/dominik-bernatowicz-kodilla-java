@@ -15,6 +15,6 @@ public class Board {
     }
 
     public void read(TaskList taskList) {
-//        taskList.getTaskList().forEach(System.out::println);
+        taskList.getTaskList().forEach(System.out::println);
     }
 }
