@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -35,5 +37,18 @@ class LibraryTestSuite {
 
         //Then
         //do nothing
+    }
+
+    @Test
+    void testContext() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+
+        //When & Then
+        System.out.println("===== Beans list: ==== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans list ====");
     }
 }
