@@ -1,32 +1,29 @@
 package com.kodilla.good.patterns.challenges.food2Door;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Produkty {
 
-    HashSet<Produkt> produkty = new HashSet<>();
+    HashMap<String, Integer> produkty;
 
-    public Produkty(HashSet<Produkt> produkty) {
-        this.produkty = produkty;
+    public Produkty(HashMap<String, Integer> produktyy) {
+        this.produkty = produktyy;
     }
 
-    public HashSet<Produkt> getProdukty() {
+    public HashMap<String, Integer> getProdukty() {
         return produkty;
     }
 
-    public void setProdukty(HashSet<Produkt> produkty) {
-        this.produkty = produkty;
+    public void addProdukty(Produkt produkt) {
+        produkty.put(produkt.getName(), produkt.getQuantity());
     }
 
-    public String wyswietl() {
+    public void wyswietl() {
         if (!produkty.isEmpty()) {
-            String lol = new String();
-            for (Produkt produkt : produkty) {
-                lol += "Nazwa: " + produkt.getName() + ", ilość: " + produkt.getQuantity() + "\n";
-            }
-            return lol;
+            System.out.println("Produkty    -   ilość ");
+            produkty.forEach((s, integer) -> System.out.println(s + "      " + integer));
         } else {
-            return "nie ma produktów";
+            System.out.println("nie ma produktów");
         }
     }
 }
